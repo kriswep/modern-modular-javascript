@@ -2,7 +2,7 @@
   "name": "composite-game",
   "version": "1.0.0",
   "description": "composition game",
-  "main": "index.js",
+  "main": "lib/server/index.js",
   "author": "kriswep",
   "license": "MIT",
   "babel": {
@@ -18,10 +18,12 @@
     "build": "webpack",
     "cleanlib": "del lib",
     "cleanclient": "del dist/client-bundle.js*",
+    "dev": "webpack-dev-server --inline --hot",
     "precompile": "npm run lint && npm run cleanlib",
     "compile": "babel -d lib/ src/",
     "lint": "eslint src/**.js",
-    "start": "npm run build",
+    "prestart": "npm run compile",
+    "start": "node lib/server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "eslintConfig": {
@@ -40,9 +42,11 @@
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.5.0",
-    "webpack": "^1.13.3"
+    "webpack": "^1.13.3",
+    "webpack-dev-server": "^1.16.2"
   },
   "dependencies": {
-    "babel-polyfill": "^6.16.0"
+    "babel-polyfill": "^6.16.0",
+    "express": "^4.14.0"
   }
 }
