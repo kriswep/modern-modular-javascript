@@ -58,8 +58,7 @@
 	guerilla.kill();
 	guerilla.drive();
 	guerilla.kill();
-	// eslint-disable-next-line no-console
-	console.log('here we are');
+	
 	// eslint-disable-next-line 
 	window.guerilla = guerilla;
 

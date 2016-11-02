@@ -22,7 +22,7 @@
     "precompile": "npm run lint && npm run cleanlib",
     "compile": "babel -d lib/ src/",
     "lint": "eslint src/**.js",
-    "prestart": "npm run compile",
+    "prestart": "npm run compile && npm run build",
     "start": "node lib/server/index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
