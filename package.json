@@ -1,18 +1,51 @@
 {
   "name": "composite-game",
-  "version": "0.1.0",
-  "private": true,
-  "devDependencies": {
-    "react-scripts": "0.7.0"
+  "version": "1.0.0",
+  "description": "composition game",
+  "main": "index.js",
+  "author": "kriswep",
+  "license": "MIT",
+  "babel": {
+    "presets": [
+      "latest"
+    ]
   },
-  "dependencies": {
-    "react": "^15.3.2",
-    "react-dom": "^15.3.2"
+  "env": {
+    "browser": true
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "prebuild": "npm run lint && npm run clean",
+    "build": "webpack",
+    "clean": "del lib",
+    "compile": "babel -d lib/ src/",
+    "lint": "eslint src/**.js",
+    "start": "gulp",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "tutorial-test": "gulp main"
+  },
+  "eslintConfig": {
+    "extends": "airbnb",
+    "plugins": [
+      "import"
+    ]
+  },
+  "devDependencies": {
+    "babel-cli": "^6.18.0",
+    "babel-loader": "^6.2.7",
+    "babel-preset-latest": "^6.16.0",
+    "del": "^2.2.2",
+    "del-cli": "^0.2.0",
+    "eslint": "^3.9.1",
+    "eslint-config-airbnb": "^12.0.0",
+    "eslint-plugin-import": "^2.0.1",
+    "eslint-plugin-jsx-a11y": "^2.2.3",
+    "eslint-plugin-react": "^6.5.0",
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-eslint": "^3.0.1",
+    "webpack": "^1.13.3"
+  },
+  "dependencies": {
+    "babel-polyfill": "^6.16.0"
   }
 }
