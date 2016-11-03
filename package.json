@@ -14,17 +14,38 @@
     "browser": true
   },
   "scripts": {
-    "prebuild": "npm run lint && npm run cleanclient",
+    "prebuild": "npm run lint && npm test && npm run cleanclient",
     "build": "webpack",
     "cleanlib": "del lib",
     "cleanclient": "del dist/client-bundle.js*",
     "dev": "webpack-dev-server --inline --hot",
     "precompile": "npm run lint && npm run cleanlib",
-    "compile": "babel -d lib/ src/",
+    "compile": "babel --ignore **.spec.js -d lib/ src/",
     "lint": "eslint src/**.js",
     "prestart": "npm run compile && npm run build",
     "start": "node lib/server/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "babel-node node_modules/.bin/tape \"./src/**/*.spec.js\" | faucet",
+    "coverage": "nyc npm test",
+    "coverage-report": "nyc report --reporter=text"
+  },
+  "nyc": {
+    "include": [
+      "src/**/*.js"
+    ],
+    "exclude": [
+      "src/**/*.spec.js"
+    ],
+    "reporter": [
+      "lcov",
+      "text-summary",
+      "text"
+    ],
+    "require": [
+      "babel-register"
+    ],
+    "cache": true,
+    "all": true,
+    "check-coverage": true
   },
   "eslintConfig": {
     "extends": "airbnb",
@@ -42,6 +63,9 @@
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.5.0",
+    "faucet": "^0.0.1",
+    "nyc": "^8.4.0",
+    "tape": "^4.6.2",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
   },
