@@ -18,6 +18,9 @@
     "build": "webpack",
     "cleanlib": "del lib",
     "cleanclient": "del dist/client-bundle.js*",
+    "coverage": "nyc npm test",
+    "coverage:watch": "watch 'npm run coverage' ./src",
+    "coverage-report": "nyc report --reporter=text",
     "dev": "webpack-dev-server --inline --hot",
     "precompile": "npm run lint && npm run cleanlib",
     "compile": "babel --ignore **.spec.js -d lib/ src/",
@@ -25,8 +28,7 @@
     "prestart": "npm run compile && npm run build",
     "start": "node lib/server/index.js",
     "test": "babel-node node_modules/.bin/tape \"./src/**/*.spec.js\" | faucet",
-    "coverage": "nyc npm test",
-    "coverage-report": "nyc report --reporter=text"
+    "test:watch": "watch 'npm test' ./src"
   },
   "nyc": {
     "include": [
@@ -66,6 +68,7 @@
     "faucet": "^0.0.1",
     "nyc": "^8.4.0",
     "tape": "^4.6.2",
+    "watch": "^1.0.1",
     "webpack": "^1.13.3",
     "webpack-dev-server": "^1.16.2"
   },

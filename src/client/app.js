@@ -2,10 +2,13 @@ import murderRobotDog from '../shared/murderRobotDog';
 
 const guerilla = murderRobotDog('guerilla');
 
-guerilla.bark();
-guerilla.kill();
+// eslint-disable-next-line no-console
+console.log(guerilla.bark());
+// eslint-disable-next-line no-console
+console.log(guerilla.kill());
 guerilla.drive();
-guerilla.kill();
+// eslint-disable-next-line no-console
+console.log(guerilla.kill());
 
 // eslint-disable-next-line 
-window.guerilla = guerilla;
+//window.guerilla = guerilla; // expose it to play around
