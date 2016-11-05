@@ -16,7 +16,7 @@ test('Killer should be able to kill', (t) => {
   });
 
   t.equal(kllr.kill(),
-    'kllr is killing now! Better keep away from position 0!', 
+    'kllr is killing now! Better keep away from position 0!',
     'Killer should kill at its position');
   t.end();
 });
