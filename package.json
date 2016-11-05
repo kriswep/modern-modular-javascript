@@ -19,17 +19,18 @@
     "cleanlib": "del lib",
     "cleanclient": "del dist/client-bundle.js*",
     "coverage": "nyc npm test",
-    "coverage:watch": "watch 'npm run coverage' ./src",
+    "coverage:watch": "watch \"npm run coverage\" ./src",
     "coverage-report": "nyc report --reporter=text",
-    "dev": "webpack-dev-server --inline --hot",
     "precompile": "npm run lint && npm test && npm run cleanlib",
     "compile": "babel --ignore **.spec.js -d lib/ src/",
+    "dev": "webpack-dev-server --inline --hot",    
+    "fulltest": "parallelshell \"npm run lint:watch\" \"npm run test:watch\"",
     "lint": "eslint \"./src\"",
-    "lint:watch": "watch 'npm run lint' ./src",
+    "lint:watch": "watch \"npm run lint\" ./src",
     "prestart": "npm run compile && npm run build",
     "start": "node lib/server/index.js",
     "test": "babel-node node_modules/.bin/tape \"./src/**/*.spec.js\" | faucet",
-    "test:watch": "watch 'npm test' ./src"
+    "test:watch": "watch \"npm test\" ./src"
   },
   "nyc": {
     "include": [
@@ -68,6 +69,7 @@
     "eslint-plugin-react": "^6.5.0",
     "faucet": "^0.0.1",
     "nyc": "^8.4.0",
+    "parallelshell": "^2.0.0",
     "tape": "^4.6.2",
     "watch": "^1.0.1",
     "webpack": "^1.13.3",
