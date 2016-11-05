@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import test from 'tape';
-import killer from './killer';
+import killer from '../killer';
 
 const state = {
   name: 'kllr',

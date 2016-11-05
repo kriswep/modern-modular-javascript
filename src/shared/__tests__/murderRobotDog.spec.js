@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import test from 'tape';
-import murderRobotDog from './murderRobotDog';
+import murderRobotDog from '../murderRobotDog';
 
 const mrdrrbtdg = murderRobotDog('mrdrrbtdg');
 

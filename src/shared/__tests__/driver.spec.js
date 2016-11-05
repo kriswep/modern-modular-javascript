@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import test from 'tape';
-import driver from './driver';
+import driver from '../driver';
 
 const state = {
   name: 'drvr',

@@ -1,6 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import test from 'tape';
-import barker from './barker';
+import barker from '../barker';
 
 test('Barker should be able to bark', (t) => {
   t.plan(2);
