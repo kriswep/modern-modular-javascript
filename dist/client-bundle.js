@@ -54,13 +54,16 @@
 	
 	var guerilla = (0, _murderRobotDog2.default)('guerilla');
 	
-	guerilla.bark();
-	guerilla.kill();
+	// eslint-disable-next-line no-console
+	console.log(guerilla.bark());
+	// eslint-disable-next-line no-console
+	console.log(guerilla.kill());
 	guerilla.drive();
-	guerilla.kill();
+	// eslint-disable-next-line no-console
+	console.log(guerilla.kill());
 	
 	// eslint-disable-next-line 
-	window.guerilla = guerilla;
+	//window.guerilla = guerilla; // expose it to play around
 
 /***/ },
 /* 1 */
@@ -108,9 +111,8 @@
 	});
 	var barker = function barker(state) {
 	  return {
-	    // eslint-disable-next-line no-console
 	    bark: function bark() {
-	      return console.log("Woof, I am " + state.name);
+	      return "Woof, I am " + state.name + "!";
 	    }
 	  };
 	};
@@ -150,7 +152,7 @@
 	  return {
 	    // eslint-disable-next-line no-console
 	    kill: function kill() {
-	      return console.log(state.name + " is killing now! Better keep away from position " + state.position);
+	      return state.name + " is killing now! Better keep away from position " + state.position + "!";
 	    }
 	  };
 	};
