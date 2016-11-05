@@ -25,6 +25,7 @@
     "precompile": "npm run lint && npm run cleanlib",
     "compile": "babel --ignore **.spec.js -d lib/ src/",
     "lint": "eslint src/**.js",
+    "lint:watch": "watch 'npm run lint' ./src",
     "prestart": "npm run compile && npm run build",
     "start": "node lib/server/index.js",
     "test": "babel-node node_modules/.bin/tape \"./src/**/*.spec.js\" | faucet",
