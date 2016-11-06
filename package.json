@@ -1,10 +1,10 @@
 {
-  "name": "composite-game",
+  "name": "modern-modular-javascript",
   "version": "1.0.0",
-  "description": "composition game",
+  "description": "A modern and modular JavaScript boilerplate setup",
   "main": "lib/server/index.js",
   "author": "kriswep",
-  "license": "MIT",
+  "license": "Unlicense",
   "babel": {
     "presets": [
       "latest"
