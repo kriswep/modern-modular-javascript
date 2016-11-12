@@ -12,7 +12,7 @@ const murderRobotDog = (name) => {
         {},
         barker(state),
         driver(state),
-        killer(state)
+        killer(state),
     );
 };
 
