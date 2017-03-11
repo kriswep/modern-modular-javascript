@@ -19,15 +19,28 @@ export default {
     contentBase: BUILD_DIR,
   },
   module: {
-    loaders: [
+    rules: [
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: { modules: 'true' }
+          },
+        ],
+      },
       {
         test: /\.jsx?$/,
+        exclude: /(node_modules|bower_components)/,
         loader: 'babel-loader',
-        exclude: [/node_modules/],
+        query: {
+          presets: ['env'],
+        },
       },
     ],
   },
   resolve: {
-    extensions: ['', '.js', '.jsx'],
+    extensions: ['.js', '.jsx'],
   },
 };

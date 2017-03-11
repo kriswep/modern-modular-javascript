@@ -1,4 +1,5 @@
 import murderRobotDog from '../shared/murderRobotDog';
+import './app.css';
 
 const guerilla = murderRobotDog('guerilla');
 

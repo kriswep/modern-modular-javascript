@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-extraneous-dependencies
 import test from 'tape';
+import 'ignore-styles';
 import app from './app';
 
 // smoke test
