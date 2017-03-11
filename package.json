@@ -7,7 +7,9 @@
   "license": "Unlicense",
   "babel": {
     "presets": [
-      "env"
+      ["env", {
+        "modules": false
+      }]
     ]
   },
   "env": {
@@ -15,21 +17,21 @@
   },
   "scripts": {
     "prebuild": "npm run lint && npm test && npm run cleanclient",
-    "build": "webpack",
+    "build": "webpack --env.production",
     "cleanlib": "del lib",
     "cleanclient": "del dist/client-bundle.js*",
     "coverage": "nyc npm test",
     "coverage:watch": "watch \"npm run coverage\" ./src",
     "coverage-report": "nyc report --reporter=text",
     "precompile": "npm run lint && npm test && npm run cleanlib",
-    "compile": "babel --ignore **.spec.js -d lib/ src/",
+    "compile": "babel --presets env --ignore **.spec.js -d lib/ src/",
     "dev": "webpack-dev-server --inline --hot",
     "fulltest": "parallelshell \"npm run lint:watch\" \"npm run test:watch\"",
     "lint": "eslint \"./src\"",
     "lint:watch": "watch \"npm run lint\" ./src",
     "prestart": "npm run compile && npm run build",
     "start": "node lib/server/index.js",
-    "test": "babel-node node_modules/.bin/tape \"./src/**/*.spec.js\" | faucet",
+    "test": "babel-node --presets env node_modules/.bin/tape \"./src/**/*.spec.js\" | faucet",
     "test:watch": "watch \"npm test\" ./src"
   },
   "nyc": {
