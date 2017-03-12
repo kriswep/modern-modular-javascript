@@ -17,7 +17,7 @@
   },
   "scripts": {
     "prebuild": "npm run lint && npm test && npm run cleanclient",
-    "build": "webpack --env.production",
+    "build": "webpack -p",
     "cleanlib": "del lib",
     "cleanclient": "del dist/client-bundle.js*",
     "coverage": "nyc npm test",
