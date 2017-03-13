@@ -1,6 +1,7 @@
 // eslint-disable-next-line
 const webpack = require('webpack');
 const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 const production = process.env.NODE_ENV === 'production';
 const BUILD_DIR = path.resolve(__dirname, 'dist');
@@ -10,7 +11,7 @@ module.exports = {
   entry: `${APP_DIR}/client/app.js`,
   output: {
     path: BUILD_DIR,
-    filename: 'client-bundle.js',
+    filename: production ? '[name].[chunkhash].js' : '[name].[hash].js',
   },
   devtool: production ? false : 'sourcemap',
   devServer: {
@@ -48,7 +49,11 @@ module.exports = {
   plugins: [
     new webpack.optimize.UglifyJsPlugin({
       sourceMap: true,
-      //options.devtool && (options.devtool.indexOf('sourcemap') >= 0 || options.devtool.indexOf('source-map') >= 0),
+    }),
+    new HtmlWebpackPlugin({
+      title: 'modern modular javascript',
+      filename: 'index.html',
+      template: 'template.html',
     }),
   ],
 };

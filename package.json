@@ -7,9 +7,12 @@
   "license": "Unlicense",
   "babel": {
     "presets": [
-      ["env", {
-        "modules": false
-      }]
+      [
+        "env",
+        {
+          "modules": false
+        }
+      ]
     ]
   },
   "env": {
@@ -19,7 +22,7 @@
     "prebuild": "npm run lint && npm test && npm run cleanclient",
     "build": "webpack -p",
     "cleanlib": "del lib",
-    "cleanclient": "del dist/client-bundle.js*",
+    "cleanclient": "del dist",
     "coverage": "nyc npm test",
     "coverage:watch": "watch \"npm run coverage\" ./src",
     "coverage-report": "nyc report --reporter=text",
@@ -72,6 +75,7 @@
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.5.0",
     "faucet": "^0.0.1",
+    "html-webpack-plugin": "^2.28.0",
     "ignore-styles": "^5.0.1",
     "nyc": "^10.1.2",
     "parallelshell": "^2.0.0",
