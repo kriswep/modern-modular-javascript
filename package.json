@@ -20,7 +20,7 @@
   },
   "scripts": {
     "prebuild": "npm run lint && npm test && npm run cleanclient",
-    "build": "webpack -p",
+    "build": "NODE_ENV=production webpack -p",
     "cleanlib": "del lib",
     "cleanclient": "del dist",
     "coverage": "nyc npm test",
@@ -28,7 +28,7 @@
     "coverage-report": "nyc report --reporter=text",
     "precompile": "npm run lint && npm test && npm run cleanlib",
     "compile": "babel --presets env --ignore **.spec.js -d lib/ src/",
-    "dev": "webpack-dev-server --inline --hot",
+    "dev": "webpack-dev-server --inline",
     "fulltest": "parallelshell \"npm run lint:watch\" \"npm run test:watch\"",
     "lint": "eslint \"./src\"",
     "lint:watch": "watch \"npm run lint\" ./src",
@@ -84,6 +84,7 @@
     "tape": "^4.6.2",
     "watch": "^1.0.1",
     "webpack": "^2.2.1",
+    "webpack-bundle-analyzer": "^2.3.1",
     "webpack-dev-server": "^2.4.1"
   },
   "dependencies": {

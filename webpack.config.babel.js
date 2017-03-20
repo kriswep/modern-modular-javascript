@@ -2,6 +2,8 @@
 const webpack = require('webpack');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+// use if needed
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 
 const production = process.env.NODE_ENV === 'production';
 const BUILD_DIR = path.resolve(__dirname, 'dist');
@@ -13,9 +15,10 @@ module.exports = {
     path: BUILD_DIR,
     filename: production ? '[name].[chunkhash].js' : '[name].[hash].js',
   },
-  devtool: production ? false : 'sourcemap',
+  devtool: production ? 'sourcemap' : 'eval-source-map',
+  // devtool: production ? false : 'sourcemap',
   devServer: {
-    hot: true,
+    hot: false,
     inline: true,
     contentBase: BUILD_DIR,
   },
@@ -43,17 +46,24 @@ module.exports = {
       },
     ],
   },
+  node: {
+    console: false,
+    global: !production,
+    process: !production,
+    Buffer: !production,
+  },
   resolve: {
     extensions: ['.js', '.jsx'],
   },
   plugins: [
-    new webpack.optimize.UglifyJsPlugin({
-      sourceMap: true,
-    }),
+    // new webpack.optimize.UglifyJsPlugin({
+    //   sourceMap: true,
+    // }),
     new HtmlWebpackPlugin({
       title: 'modern modular javascript',
       filename: 'index.html',
       template: 'template.html',
     }),
+    // new BundleAnalyzerPlugin(), // use if needed
   ],
 };
