@@ -1,40 +1,32 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import test from 'tape';
+/* globals test expect */
 import murderRobotDog from '../murderRobotDog';
 
 const mrdrrbtdg = murderRobotDog('mrdrrbtdg');
 
-test('MurderRobotDog should be able to bark', (t) => {
-  t.plan(2);
+test('MurderRobotDog should be able to bark', () => {
+  expect.assertions(2);
 
-  t.doesNotThrow(() => {
-    mrdrrbtdg.bark();
-  });
+  expect(
+    mrdrrbtdg.bark,
+  ).not.toThrow();
 
-  t.equal(mrdrrbtdg.bark(), 'Woof, I am mrdrrbtdg!',
-    'Barker should bark its name');
-  t.end();
+  expect(mrdrrbtdg.bark()).toBe('Woof, I am mrdrrbtdg!');
 });
 
-test('MurderRobotDog should be able to drive', (t) => {
-  t.plan(1);
+test('MurderRobotDog should be able to drive', () => {
+  expect.assertions(1);
 
-  t.doesNotThrow(() => {
-    mrdrrbtdg.drive();
-  });
-
-  t.end();
+  expect(
+    mrdrrbtdg.drive,
+  ).not.toThrow();
 });
 
-test('MurderRobotDog should be able to kill', (t) => {
-  t.plan(2);
+test('MurderRobotDog should be able to kill', () => {
+  expect.assertions(2);
 
-  t.doesNotThrow(() => {
-    mrdrrbtdg.kill();
-  });
+  expect(
+    mrdrrbtdg.kill,
+  ).not.toThrow();
 
-  t.equal(mrdrrbtdg.kill(),
-    'mrdrrbtdg is killing now! Better keep away from position 100!',
-    'Killer should kill at its position');
-  t.end();
+  expect(mrdrrbtdg.kill()).toBe('mrdrrbtdg is killing now! Better keep away from position 100!');
 });

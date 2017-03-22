@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import test from 'tape';
+/* globals test expect */
 import driver from '../driver';
 
 const state = {
@@ -7,13 +6,11 @@ const state = {
   position: 0,
 };
 
-test('Driver should be able to drive', (t) => {
-  t.plan(1);
+test('Driver should be able to drive', () => {
+  expect.assertions(1);
 
   const drvr = driver(state);
-  t.doesNotThrow(() => {
-    drvr.drive();
-  });
-
-  t.end();
+  expect(
+    drvr.drive,
+  ).not.toThrow();
 });

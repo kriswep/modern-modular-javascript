@@ -1,15 +1,12 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import test from 'tape';
+/* globals test expect */
 import barker from '../barker';
 
-test('Barker should be able to bark', (t) => {
-  t.plan(2);
-
+test('Barker should be able to bark', () => {
+  expect.assertions(2);
   const brkr = barker({ name: 'brkr' });
-  t.doesNotThrow(() => {
-    brkr.bark();
-  });
+  expect(
+    brkr.bark,
+  ).not.toThrow();
 
-  t.equal(brkr.bark(), 'Woof, I am brkr!', 'Barker should bark its name');
-  t.end();
+  expect(brkr.bark()).toBe('Woof, I am brkr!');
 });

@@ -3,6 +3,8 @@ import './app.css';
 
 const guerilla = murderRobotDog('guerilla');
 
+export default guerilla;
+
 // eslint-disable-next-line no-console
 console.log(guerilla.bark());
 // eslint-disable-next-line no-console
@@ -11,5 +13,5 @@ guerilla.drive();
 // eslint-disable-next-line no-console
 console.log(guerilla.kill());
 
-// eslint-disable-next-line 
+// eslint-disable-next-line
 //window.guerilla = guerilla; // expose it to play around

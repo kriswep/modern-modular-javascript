@@ -1,20 +1,10 @@
 {
   "name": "modern-modular-javascript",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "A modern and modular JavaScript boilerplate setup",
   "main": "lib/server/index.js",
   "author": "kriswep",
   "license": "Unlicense",
-  "babel": {
-    "presets": [
-      [
-        "env",
-        {
-          "modules": false
-        }
-      ]
-    ]
-  },
   "env": {
     "browser": true
   },
@@ -23,9 +13,8 @@
     "build": "NODE_ENV=production webpack -p",
     "cleanlib": "del lib",
     "cleanclient": "del dist",
-    "coverage": "nyc npm test",
-    "coverage:watch": "watch \"npm run coverage\" ./src",
-    "coverage-report": "nyc report --reporter=text",
+    "coverage": "jest --coverage",
+    "coverage:watch": "jest --coverage --watch",
     "precompile": "npm run lint && npm test && npm run cleanlib",
     "compile": "babel --presets env --ignore **.spec.js -d lib/ src/",
     "dev": "webpack-dev-server --inline",
@@ -34,27 +23,14 @@
     "lint:watch": "watch \"npm run lint\" ./src",
     "prestart": "npm run compile && npm run build",
     "start": "node lib/server/index.js",
-    "test": "babel-node --presets env node_modules/.bin/tape \"./src/**/*.spec.js\" | faucet",
-    "test:watch": "watch \"npm test\" ./src"
+    "test": "jest",
+    "test:watch": "jest --watch"
   },
-  "nyc": {
-    "include": [
-      "src/**/*.js"
-    ],
-    "exclude": [
-      "src/**/*.spec.js"
-    ],
-    "reporter": [
-      "lcov",
-      "text-summary",
-      "text"
-    ],
-    "require": [
-      "babel-register"
-    ],
-    "cache": true,
-    "all": true,
-    "check-coverage": true
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "<rootDir>/__mocks__/styleMock.js"
+    }
   },
   "eslintConfig": {
     "extends": "airbnb",
@@ -65,6 +41,7 @@
   "devDependencies": {
     "babel-cli": "^6.23.0",
     "babel-core": "^6.23.1",
+    "babel-jest": "^19.0.0",
     "babel-loader": "^6.4.0",
     "babel-preset-env": "^1.2.1",
     "css-loader": "^0.27.1",
@@ -74,14 +51,12 @@
     "eslint-plugin-import": "^2.0.1",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.5.0",
-    "faucet": "^0.0.1",
     "html-webpack-plugin": "^2.28.0",
-    "ignore-styles": "^5.0.1",
-    "nyc": "^10.1.2",
+    "jest": "^19.0.2",
     "parallelshell": "^2.0.0",
+    "regenerator-runtime": "^0.10.3",
     "style-loader": "^0.14.1",
     "supertest": "^3.0.0",
-    "tape": "^4.6.2",
     "watch": "^1.0.1",
     "webpack": "^2.2.1",
     "webpack-bundle-analyzer": "^2.3.1",

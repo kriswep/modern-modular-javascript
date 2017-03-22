@@ -1,16 +1,11 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import test from 'tape';
-import 'ignore-styles';
+/* globals test expect */
 import app from './app';
 
-// smoke test
-test('App should not crash', (t) => {
-  t.plan(1);
+// smoke  test
+test('App should not crash', () => {
+  expect.assertions(3);
 
-  t.doesNotThrow(() => {
-    // eslint-disable-next-line
-    app;
-  });
-
-  t.end();
+  expect(app.bark).not.toThrow();
+  expect(app.drive).not.toThrow();
+  expect(app.kill).not.toThrow();
 });

@@ -1,5 +1,4 @@
-// eslint-disable-next-line import/no-extraneous-dependencies
-import test from 'tape';
+/* globals test expect */
 import killer from '../killer';
 
 const state = {
@@ -7,16 +6,13 @@ const state = {
   position: 0,
 };
 
-test('Killer should be able to kill', (t) => {
-  t.plan(2);
+test('Killer should be able to kill', () => {
+  expect.assertions(2);
 
   const kllr = killer(state);
-  t.doesNotThrow(() => {
-    kllr.kill();
-  });
+  expect(
+    kllr.kill,
+  ).not.toThrow();
 
-  t.equal(kllr.kill(),
-    'kllr is killing now! Better keep away from position 0!',
-    'Killer should kill at its position');
-  t.end();
+  expect(kllr.kill()).toBe('kllr is killing now! Better keep away from position 0!');
 });
