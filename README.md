@@ -5,7 +5,7 @@ It was heavily inspired by [js-stack-from-scratch](https://github.com/verekia/js
 
 Code examples inspired by a great [composition>inheritance](https://medium.com/humans-create-software/composition-over-inheritance-cb6f88070205#.aac2jfcff) tutorial.
 
-It comes with a fast running, simple to grasp, [tape](https://github.com/substack/tape) test setup.
+It comes with a fast running, simple to grasp, [jest](https://facebook.github.io/jest/) test setup.
 
 All dev-tools are exposed as npm scripts.
 
@@ -40,7 +40,7 @@ You can run all scripts either with [`npm`](https://www.npmjs.com/) or [`yarn`](
 - `npm run dev`: Start the development, live-reloading, server
 - `npm run coverage`: Calculate test coverage.
 
-For some task there is a watch task, which can run the corresponding task 
+For some task there is a watch task, which can run the corresponding task
 after file cahnges.
 - `npm run test:watch`: Run tests repeatedly
 - `npm run lint:watch`: Run eslint repeatedly
@@ -48,11 +48,11 @@ after file cahnges.
 - `npm run fulltest`: Run eslint and test repeatedly
 
 ## Ideas
-This boilerplate doesn't set up any UI. 
-You could add whatever you want, like [React](https://facebook.github.io/react/) 
+This boilerplate doesn't set up any UI.
+You could add whatever you want, like [React](https://facebook.github.io/react/)
 or maybe even use [custom elements v1](https://developers.google.com/web/fundamentals/getting-started/primers/customelements).
 
-Also backend implementation is kind of simplistic, 
+Also backend implementation is kind of simplistic,
 this setup is more focused on frontend JavaScript for now.
 
 ## License
