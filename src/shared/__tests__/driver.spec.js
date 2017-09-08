@@ -10,7 +10,5 @@ test('Driver should be able to drive', () => {
   expect.assertions(1);
 
   const drvr = driver(state);
-  expect(
-    drvr.drive,
-  ).not.toThrow();
+  expect(drvr.drive).not.toThrow();
 });
